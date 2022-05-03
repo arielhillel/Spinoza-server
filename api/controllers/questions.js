@@ -30,12 +30,31 @@ module.exports = {
       });
   },
   createQuestion: (req, res) => {
-    const { title, description, content } = req.body;
+    const {
+      messageType,
+      id,
+      name,
+      schemaVersion,
+      questionVersion,
+      previousVersionId,
+      authorId,
+      type,
+      difficultyLevel,
+      tags,
+      content,
+    } = req.body;
 
     const question = new Question({
-      _id: new mongoose.Types.ObjectId(),
-      title,
-      description,
+      messageType,
+      id,
+      name,
+      schemaVersion,
+      questionVersion,
+      previousVersionId,
+      authorId,
+      type,
+      difficultyLevel,
+      tags,
       content,
     });
     return question

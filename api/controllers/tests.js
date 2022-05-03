@@ -30,13 +30,30 @@ module.exports = {
       });
   },
   createTest: (req, res) => {
-    const { title, description, content } = req.body;
+    const {
+      messageType,
+      id,
+      title,
+      schemaVersion,
+      testVersion,
+      previousVersionId,
+      authorId,
+      description,
+      tags,
+      questions,
+    } = req.body;
 
     const test = new Test({
-      _id: new mongoose.Types.ObjectId(),
+      messageType,
+      id,
       title,
+      schemaVersion,
+      testVersion,
+      previousVersionId,
+      authorId,
       description,
-      content,
+      tags,
+      questions,
     });
     return test
       .save()
