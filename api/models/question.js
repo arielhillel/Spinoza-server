@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
 
 const questionSchema = mongoose.Schema({
-  MessageType: String,
+  MessageType:{
+    type: String,
+    require: true
+  },
   _id: mongoose.Schema.Types.ObjectId,
   schemaVersion: String,
   questionVersion: String,
@@ -12,7 +15,7 @@ const questionSchema = mongoose.Schema({
   DificaltyLevel: Number,
   tags: Array,
   constent: Object,
-  
+
   {
     "MessageType" : "AddQuestion|UpdateQuestion",
     "id": "AEAF4717-357A-4545-8905-D4AB94A61DA9",
